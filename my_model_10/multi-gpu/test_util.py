@@ -331,8 +331,8 @@ def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
 
     for video_idx in range(video_nums):
         # shape = (1430,)
-        losses = np.loadtxt(os.path.join(regularity_score_dir, error_name,
-                                                   'scores_{:02d}.txt'.format(video_idx + 1)))
+        losses = np.load(os.path.join(regularity_score_dir, error_name,
+                                                   'scores_{:02d}.npy'.format(video_idx + 1)))
 
         for frame_idx in range(losses.shape()[0]):
             plt.imshow(np.squeeze(losses[frame_idx]), vmin=np.amin(losses),

@@ -20,7 +20,7 @@ window_length = 50
 
 use_trick = 1
 for_remote = 0
-for_pc = 0
+for_pc = 1
 use_rgb = 1
 file_name = 'myModel_10'
 """for avenue"""
@@ -655,14 +655,11 @@ def train(cfg, logger, model_name):
 
 def compute_and_save_scores(errors, dir, video_id, error_name):
     # regularity score
-    if error_name != 'pixel_loss':
-        scores = errors - min(errors)
-        scores = scores / max(scores)
-        if error_name != 'psnr':
-            # psnr原为正常值，转为异常值
-            scores = 1 - scores
-    else:
-        scores = errors
+    scores = errors - min(errors)
+    scores = scores / max(scores)
+    if error_name != 'psnr':
+        # psnr原为正常值，转为异常值
+        scores = 1 - scores
     regularity_score_file_dir = os.path.join(dir, error_name)
     if not os.path.exists(regularity_score_file_dir):
         os.makedirs(regularity_score_file_dir)
@@ -671,6 +668,13 @@ def compute_and_save_scores(errors, dir, video_id, error_name):
     np.savetxt(regularity_score_file_path, scores)
 
 
+def save_pixel_loss(errors, dir, video_id, error_name):
+
+    regularity_score_file_dir = os.path.join(dir, error_name)
+    if not os.path.exists(regularity_score_file_dir):
+        os.makedirs(regularity_score_file_dir)
+    np.save(os.path.join(regularity_score_file_dir, 'losses_{:02d}.npy'.format(video_id+1)),
+            errors)
 """
 Test phase
 """
@@ -837,7 +841,7 @@ def test(cfg, logger, model_name):
                 psnr_diss = np.array(psnr_dis_l)
                 psnr_half_diss = np.array(psnr_half_dis_l)
 
-                compute_and_save_scores(pixel_losses, regularity_score_dir, i, 'pixel_loss')
+                save_pixel_loss(pixel_losses, regularity_score_dir, i, 'pixel_loss')
                 # compute_and_save_scores(mse_errors, regularity_score_dir, i, 'mse')
                 # compute_and_save_scores(psnrs, regularity_score_dir, i, 'psnr')
                 # compute_and_save_scores(dis_losses, regularity_score_dir, i, 'dis')
