@@ -1,0 +1,5 @@
+    model_dir = os.path.join(checkpoint_dir, 
+        '{}_{}_{}_{}_{}_{}_{}_[{}_{}_{}_{}_{}_{}_{}_{}_{}]_[{}_{}_{}]'.format(
+    cfg.batch_size, cfg.clip_length, cfg.opt, cfg.epochs, cfg.patient, LRATE_G, LRATE_D, 
+    l_num, alpha_num, lam_lp, lam_gdl, lam_adv, lam_flow, lam_two_stream, use_tvnet, use_wgan,
+    tv_scale, tv_warp, tv_iter))

@@ -1,0 +1,2 @@
+python3 main.py --phase train
+python3 main.py --phase test
