@@ -752,105 +752,105 @@ def test(cfg, logger, model_name):
         # fraction of overall amount of memory that each GPU should be allocated
         config.gpu_options.per_process_gpu_memory_fraction = 0.8
     
-    with tf.Session(config=config) as sess:
-        init_or_restore(sess, saver_for_best, best_model_ckpt_dir, logger)
-
-        start_time = time.time()
-        try:
-            assert os.path.isfile(os.path.join(regularity_score_dir, 'ignored_frames_list.txt'))
-            assert os.path.isfile(os.path.join(regularity_score_dir, 'video_length_list.txt'))
-        except:
-            print('[!!!] 未发现video_length_list.txt 或 ignored_frames_list.txt， 开始计算')
-            logger.info('[!!!] 未发现video_length_list.txt 或 ignored_frames_list.txt， 开始计算')
-            # total_frame_nums = 0
-            IGNORED_FRAMES_LIST = []
-            VIDEO_LENGTH_LIST = []
-            for i in range(video_nums):
-                npy_name = 'testing_frames_{:02d}.npy'.format(i + 1)
-                if use_rgb == 1:
-                    npy_name = 'rgb_' + npy_name
-                data_frames = np.load(os.path.join(npy_dir, npy_name))
-                frame_nums = data_frames.shape[0]
-                used_frame_nums = frame_nums
-                IGNORED_FRAMES_LIST.append(cfg.time_length)
-                VIDEO_LENGTH_LIST.append(used_frame_nums)
-                # total_frame_nums +=used_frame_nums
-            np.savetxt(os.path.join(regularity_score_dir, 'ignored_frames_list.txt'),
-                       np.array(IGNORED_FRAMES_LIST), fmt='%d')
-            np.savetxt(os.path.join(regularity_score_dir, 'video_length_list.txt'),
-                       np.array(VIDEO_LENGTH_LIST), fmt='%d')
-
-        for i in range(video_nums):
-            npy_name = 'testing_frames_{:02d}.npy'.format(i + 1)
-            if use_rgb == 1:
-                npy_name = 'rgb_' + npy_name
-            data_frames = np.load(os.path.join(npy_dir, npy_name))
-            # frame_nums = data_frames.shape[0]
-            # used_frame_nums = frame_nums
-            # IGNORED_FRAMES_LIST.append(cfg.clip_length-1)
-            # VIDEO_LENGTH_LIST.append(used_frame_nums)
-            # total_frame_nums +=used_frame_nums
-            score_file = [x for x in os.listdir(regularity_score_dir)
-                          if x.startswith('scores_') == True]
-            if (len(score_file) != video_nums):
-                pixel_loss_l = []
-                mse_errors_l = []
-                psnr_l = []
-                if lam_two_stream != 0:
-                    reconstr_loss_l = []
-                    psnr_rec_l = []
-                dis_loss_l = []
-                psnr_dis_l = []
-                psnr_half_dis_l = []
-
-                psnr_half_rec_l = []
-
-                for j in range(len(data_frames)-cfg.clip_length+1):
-                    # [clip_length, h, w]
-                    tested_data = data_frames[j:j + cfg.clip_length]
-                    # [n, clip_length, h, w] for gray or [n, clip_length, h, w, c] for rgb
-                    tested_data = np.expand_dims(tested_data, axis=0)
-                    if use_rgb == 0:
-                        # [n, clip_length, h, w, 1]
-                        tested_data = np.expand_dims(tested_data, axis=-1)
-
-                    pixel_loss_v, dis_loss_v, reconstr_loss_v, mse_error_v, psnr_v = sess.run(
-                            [pixel_loss, dis_loss, reconstr_loss, mse_error, psnr],
-                            feed_dict={data: tested_data,
-                                       batch_size:1})
-
-                    pixel_loss_l.append(pixel_loss_v)
-                    mse_errors_l.append(mse_error_v)
-                    psnr_l.append(psnr_v)
-                    dis_loss_l.append(dis_loss_v)
-                    psnr_dis_l.append(-psnr_v + dis_loss_v)
-                    psnr_half_dis_l.append(-psnr_v + 0.5*dis_loss_v)
-                    psnr_half_rec_l.append(-psnr_v + 0.5*reconstr_loss_v)
-                    if lam_two_stream != 0:
-                        reconstr_loss_l.append(reconstr_loss_v)
-                        psnr_rec_l.append(-psnr_v + reconstr_loss_v)
-
-                pixel_losses = np.array(pixel_loss_l)
-                mse_errors = np.array(mse_errors_l)
-                psnrs = np.array(psnr_l)
-                dis_losses = np.array(dis_loss_l)
-                if lam_two_stream != 0:
-                    reconstr_losses = np.array(reconstr_loss_l)
-                    psnr_recs = np.array(psnr_rec_l)
-                psnr_half_recs = np.array(psnr_half_rec_l)
-                psnr_diss = np.array(psnr_dis_l)
-                psnr_half_diss = np.array(psnr_half_dis_l)
-
-                save_pixel_loss(pixel_losses, regularity_score_dir, i, 'pixel_loss')
-                # compute_and_save_scores(mse_errors, regularity_score_dir, i, 'mse')
-                # compute_and_save_scores(psnrs, regularity_score_dir, i, 'psnr')
-                # compute_and_save_scores(dis_losses, regularity_score_dir, i, 'dis')
-                # compute_and_save_scores(psnr_half_recs, regularity_score_dir, i, 'psnr_half_rec')
-                # compute_and_save_scores(psnr_diss, regularity_score_dir, i, 'psnr_dis')
-                # compute_and_save_scores(psnr_half_diss, regularity_score_dir, i, 'psnr_half_dis')
-                # if lam_two_stream != 0:
-                #     compute_and_save_scores(reconstr_losses, regularity_score_dir, i, 'rec')
-                #     compute_and_save_scores(psnr_recs, regularity_score_dir, i, 'psnr_rec')
+    # with tf.Session(config=config) as sess:
+    #     init_or_restore(sess, saver_for_best, best_model_ckpt_dir, logger)
+    #
+    #     start_time = time.time()
+    #     try:
+    #         assert os.path.isfile(os.path.join(regularity_score_dir, 'ignored_frames_list.txt'))
+    #         assert os.path.isfile(os.path.join(regularity_score_dir, 'video_length_list.txt'))
+    #     except:
+    #         print('[!!!] 未发现video_length_list.txt 或 ignored_frames_list.txt， 开始计算')
+    #         logger.info('[!!!] 未发现video_length_list.txt 或 ignored_frames_list.txt， 开始计算')
+    #         # total_frame_nums = 0
+    #         IGNORED_FRAMES_LIST = []
+    #         VIDEO_LENGTH_LIST = []
+    #         for i in range(video_nums):
+    #             npy_name = 'testing_frames_{:02d}.npy'.format(i + 1)
+    #             if use_rgb == 1:
+    #                 npy_name = 'rgb_' + npy_name
+    #             data_frames = np.load(os.path.join(npy_dir, npy_name))
+    #             frame_nums = data_frames.shape[0]
+    #             used_frame_nums = frame_nums
+    #             IGNORED_FRAMES_LIST.append(cfg.time_length)
+    #             VIDEO_LENGTH_LIST.append(used_frame_nums)
+    #             # total_frame_nums +=used_frame_nums
+    #         np.savetxt(os.path.join(regularity_score_dir, 'ignored_frames_list.txt'),
+    #                    np.array(IGNORED_FRAMES_LIST), fmt='%d')
+    #         np.savetxt(os.path.join(regularity_score_dir, 'video_length_list.txt'),
+    #                    np.array(VIDEO_LENGTH_LIST), fmt='%d')
+    #
+    #     for i in range(video_nums):
+    #         npy_name = 'testing_frames_{:02d}.npy'.format(i + 1)
+    #         if use_rgb == 1:
+    #             npy_name = 'rgb_' + npy_name
+    #         data_frames = np.load(os.path.join(npy_dir, npy_name))
+    #         # frame_nums = data_frames.shape[0]
+    #         # used_frame_nums = frame_nums
+    #         # IGNORED_FRAMES_LIST.append(cfg.clip_length-1)
+    #         # VIDEO_LENGTH_LIST.append(used_frame_nums)
+    #         # total_frame_nums +=used_frame_nums
+    #         score_file = [x for x in os.listdir(regularity_score_dir)
+    #                       if x.startswith('scores_') == True]
+    #         if (len(score_file) != video_nums):
+    #             pixel_loss_l = []
+    #             mse_errors_l = []
+    #             psnr_l = []
+    #             if lam_two_stream != 0:
+    #                 reconstr_loss_l = []
+    #                 psnr_rec_l = []
+    #             dis_loss_l = []
+    #             psnr_dis_l = []
+    #             psnr_half_dis_l = []
+    #
+    #             psnr_half_rec_l = []
+    #
+    #             for j in range(len(data_frames)-cfg.clip_length+1):
+    #                 # [clip_length, h, w]
+    #                 tested_data = data_frames[j:j + cfg.clip_length]
+    #                 # [n, clip_length, h, w] for gray or [n, clip_length, h, w, c] for rgb
+    #                 tested_data = np.expand_dims(tested_data, axis=0)
+    #                 if use_rgb == 0:
+    #                     # [n, clip_length, h, w, 1]
+    #                     tested_data = np.expand_dims(tested_data, axis=-1)
+    #
+    #                 pixel_loss_v, dis_loss_v, reconstr_loss_v, mse_error_v, psnr_v = sess.run(
+    #                         [pixel_loss, dis_loss, reconstr_loss, mse_error, psnr],
+    #                         feed_dict={data: tested_data,
+    #                                    batch_size:1})
+    #
+    #                 pixel_loss_l.append(pixel_loss_v)
+    #                 mse_errors_l.append(mse_error_v)
+    #                 psnr_l.append(psnr_v)
+    #                 dis_loss_l.append(dis_loss_v)
+    #                 psnr_dis_l.append(-psnr_v + dis_loss_v)
+    #                 psnr_half_dis_l.append(-psnr_v + 0.5*dis_loss_v)
+    #                 psnr_half_rec_l.append(-psnr_v + 0.5*reconstr_loss_v)
+    #                 if lam_two_stream != 0:
+    #                     reconstr_loss_l.append(reconstr_loss_v)
+    #                     psnr_rec_l.append(-psnr_v + reconstr_loss_v)
+    #
+    #             pixel_losses = np.array(pixel_loss_l)
+    #             mse_errors = np.array(mse_errors_l)
+    #             psnrs = np.array(psnr_l)
+    #             dis_losses = np.array(dis_loss_l)
+    #             if lam_two_stream != 0:
+    #                 reconstr_losses = np.array(reconstr_loss_l)
+    #                 psnr_recs = np.array(psnr_rec_l)
+    #             psnr_half_recs = np.array(psnr_half_rec_l)
+    #             psnr_diss = np.array(psnr_dis_l)
+    #             psnr_half_diss = np.array(psnr_half_dis_l)
+    #
+    #             save_pixel_loss(pixel_losses, regularity_score_dir, i, 'pixel_loss')
+    #             # compute_and_save_scores(mse_errors, regularity_score_dir, i, 'mse')
+    #             # compute_and_save_scores(psnrs, regularity_score_dir, i, 'psnr')
+    #             # compute_and_save_scores(dis_losses, regularity_score_dir, i, 'dis')
+    #             # compute_and_save_scores(psnr_half_recs, regularity_score_dir, i, 'psnr_half_rec')
+    #             # compute_and_save_scores(psnr_diss, regularity_score_dir, i, 'psnr_dis')
+    #             # compute_and_save_scores(psnr_half_diss, regularity_score_dir, i, 'psnr_half_dis')
+    #             # if lam_two_stream != 0:
+    #             #     compute_and_save_scores(reconstr_losses, regularity_score_dir, i, 'rec')
+    #             #     compute_and_save_scores(psnr_recs, regularity_score_dir, i, 'psnr_rec')
 
     # print('AUC and EER result:')
     # logger.info('AUC and EER result:')
@@ -883,7 +883,7 @@ def test(cfg, logger, model_name):
 
         # plot score
         plot_heatmap(video_nums, args.dataset, regularity_score_dir, error_name, logger,
-                     cfg.clip_length - 1)
+                     cfg.clip_length - 1, dataset_root_dir, cfg)
     print('[!!!] model name:{}'.format(model_name))
     logger.info('[!!!] model name:{}'.format(model_name))
 

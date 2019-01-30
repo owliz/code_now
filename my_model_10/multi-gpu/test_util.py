@@ -322,7 +322,9 @@ def plot_score(video_nums, dataset, regularity_score_dir, error_name, logger, gt
 
 
 def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
-               start_id):
+               start_id, dataset_root_dir, cfg):
+    video_root_path = os.path.join(dataset_root_dir, 'cgan_data', dataset, 'testing_frames')
+    assert os.path.exists(video_root_path), '[!!!] test video not found'
     plot_dir = os.path.join(regularity_score_dir, error_name, 'heatmap')
     print("Plotting regularity scores, saved in [{}]".format(plot_dir))
     logger.info("Plotting regularity scores, saved in [{}]".format(plot_dir))
@@ -330,17 +332,30 @@ def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
         os.makedirs(plot_dir)
 
     for video_idx in range(video_nums):
-        # shape = (1430,)
+        # shape = (1435,)
         losses = np.load(os.path.join(regularity_score_dir, error_name,
-                                                   'scores_{:02d}.npy'.format(video_idx + 1)))
+                                                   'losses_{:02d}.npy'.format(video_idx + 1)))
 
-        for frame_idx in range(losses.shape()[0]):
-            plt.imshow(np.squeeze(losses[frame_idx]), vmin=np.amin(losses),
-                       vmax=np.amax(losses), cmap='jet')
-            plt.colorbar()
-            plt.savefig(os.path.join(plot_dir,
-                                     '{}_err_vid{:02d}_frm{:03d}.png'.format(dataset, video_idx + 1,
-                                                                             frame_idx + 1)))
+        video_path = os.path.join(video_root_path, '{:02d}'.format(video_idx+1))
+        video_frame_list = [x for x in os.listdir(video_path) if x.endswith('jpg')]
+        frame_nums = len(video_frame_list)
+        assert frame_nums == losses.shape[0]+start_id, '[!!!] frame num not same'
+        for frame_idx in range(losses.shape[0]):
+            if dataset == 'avenue':
+                img_path = os.path.join(video_path, '{:04d}.jpg'.format(frame_idx+start_id))
+            else:
+                img_path = os.path.join(video_path, '{:03d}.jpg'.format(frame_idx+start_id))
+            img = plt.imread(img_path)
+            img = np.resize(img, (cfg.width, cfg.height, img.shape[-1]))
+            fig, ax = plt.subplots()
+            ax.imshow(img, alpha=0.5)
+            ax.imshow(np.squeeze(losses[frame_idx]), vmin=np.amin(losses),
+                       vmax=np.amax(losses), cmap='jet', alpha=0.5)
+            ax.colorbar()
+            path = os.path.join(plot_dir, '{:02d}'.format(video_idx + 1))
+            if not os.path.exists(path):
+                os.makedirs(path)
+            ax.savefig(os.path.join(plot_dir, 'frm{:03d}.png'.format(path, frame_idx + 1)))
             plt.clf()
 
 
