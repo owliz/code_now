@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import scipy.io as scio
-
+import cv2
 # 针对远程服务器没有GUI
 import matplotlib as mpl
 if os.environ.get('DISPLAY','') == '':
@@ -322,7 +322,11 @@ def plot_score(video_nums, dataset, regularity_score_dir, error_name, logger, gt
 
 
 def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
-               start_id, dataset_root_dir, cfg):
+               start_id, dataset_root_dir, cfg, gt_root_dir):
+    abnormal_events = load_groundtruth_from_mat(dataset, gt_root_dir)
+    assert len(abnormal_events) == video_nums, \
+        'the number of groundTruth does not match inference result'
+
     video_root_path = os.path.join(dataset_root_dir, 'cgan_data', dataset, 'testing_frames')
     assert os.path.exists(video_root_path), '[!!!] test video not found'
     plot_dir = os.path.join(regularity_score_dir, error_name, 'heatmap')
@@ -332,6 +336,12 @@ def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
         os.makedirs(plot_dir)
 
     for video_idx in range(video_nums):
+        sub_abnormal_events = abnormal_events[video_idx]
+        _, event_num = sub_abnormal_events.shape
+        idx = 0
+        start = max(sub_abnormal_events[0, idx] - 1, start_id)
+        end = sub_abnormal_events[1, idx] - 1
+
         # shape = (1435,)
         losses = np.load(os.path.join(regularity_score_dir, error_name,
                                                    'losses_{:02d}.npy'.format(video_idx + 1)))
@@ -340,22 +350,43 @@ def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
         video_frame_list = [x for x in os.listdir(video_path) if x.endswith('jpg')]
         frame_nums = len(video_frame_list)
         assert frame_nums == losses.shape[0]+start_id, '[!!!] frame num not same'
+
         for frame_idx in range(losses.shape[0]):
             if dataset == 'avenue':
                 img_path = os.path.join(video_path, '{:04d}.jpg'.format(frame_idx+start_id))
+                # BGR, 0~255，通道格式为(W, H, C)
+                frame_value = cv2.imread(img_path)
+                frame_value = cv2.cvtColor(frame_value, cv2.COLOR_BGR2RGB)
             else:
                 img_path = os.path.join(video_path, '{:03d}.jpg'.format(frame_idx+start_id))
-            img = plt.imread(img_path)
-            img = np.resize(img, (cfg.width, cfg.height, img.shape[-1]))
-            fig, ax = plt.subplots()
-            ax.imshow(img, alpha=0.5)
-            ax.imshow(np.squeeze(losses[frame_idx]), vmin=np.amin(losses),
+                frame_value = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
+
+            frame_value = cv2.resize(frame_value, (cfg.width, cfg.height))
+            # fig, ax = plt.subplots()
+            im1 = plt.imshow(frame_value)
+            im2 = plt.imshow(np.squeeze(losses[frame_idx]), vmin=np.amin(losses),
                        vmax=np.amax(losses), cmap='jet', alpha=0.5)
-            ax.colorbar()
+            plt.colorbar(im2)
+            ax = plt.gca()
+            ax.set_xlabel('width')
+            ax.set_ylabel('height')
+
+            # ax.text(3, 8, 'ABNORMAL FRAME', bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
+            if start <= frame_idx <= end:
+                ax.set_title('ABNORMAL FRAME(GT)', color='red')
+                if frame_idx == end:
+                    idx += 1
+                    if idx+1 <= event_num:
+                        start = max(sub_abnormal_events[0, idx] - 1, start_id)
+                        end = sub_abnormal_events[1, idx] - 1
+
             path = os.path.join(plot_dir, '{:02d}'.format(video_idx + 1))
             if not os.path.exists(path):
                 os.makedirs(path)
-            ax.savefig(os.path.join(plot_dir, 'frm{:03d}.png'.format(path, frame_idx + 1)))
+            if dataset == 'avenue':
+                plt.savefig(os.path.join(path, 'frm_{:04d}.png'.format(frame_idx + start_id)))
+            else:
+                plt.savefig(os.path.join(path, 'frm_{:03d}.png'.format(frame_idx + start_id)))
             plt.clf()
 
 

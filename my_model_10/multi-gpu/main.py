@@ -883,7 +883,7 @@ def test(cfg, logger, model_name):
 
         # plot score
         plot_heatmap(video_nums, args.dataset, regularity_score_dir, error_name, logger,
-                     cfg.clip_length - 1, dataset_root_dir, cfg)
+                     cfg.clip_length - 1, dataset_root_dir, cfg, gt_root_dir)
     print('[!!!] model name:{}'.format(model_name))
     logger.info('[!!!] model name:{}'.format(model_name))
 
