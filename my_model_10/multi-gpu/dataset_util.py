@@ -52,30 +52,32 @@ class Dataset(object):
         val_file_dir_list = []
         val_volume_num = 0
 
+        size = '{}_{}'.format(cfg.width, cfg.height)
         dir_name =  'clip_length_{:02d}'.format(cfg.clip_length)
         if use_rgb == 1:
             dir_name = 'rgb_' + dir_name
         # load training data (stride-1,2,3)
+        dir_path = os.path.join(tfrecord_root_dir, dataset, size, dir_name)
         for i in range(1):
-            train_file_dir = os.path.join(tfrecord_root_dir, dataset, dir_name, 
-            'train_stride_{}_validate_split_{}.tfrecords'.format(
-                i+1, validation_split))
+            train_file_dir = os.path.join(dir_path,
+                                          'train_stride_{}_validate_split_{}.tfrecords'.format(
+                                              i+1, validation_split))
             train_file_dir_list.append(train_file_dir)
 
-            train_num_dir = os.path.join(tfrecord_root_dir, dataset, dir_name, 
+            train_num_dir = os.path.join(dir_path,
             'num_of_volumes_in_train_stride_{}_validate_split_{}.txt'.format(
                 i+1, validation_split))
             train_volume_num += np.loadtxt(train_num_dir, dtype=int)
         
         # load validating data (stride-1)
         for i in range(1):
-            val_file_dir = os.path.join(tfrecord_root_dir, dataset, dir_name,
+            val_file_dir = os.path.join(dir_path,
              'val_stride_{}_validate_split_{}.tfrecords'.format(
                 i+1, validation_split))
             val_file_dir_list.append(val_file_dir)
 
-            val_num_dir = os.path.join(tfrecord_root_dir, dataset, dir_name
-            , 'num_of_volumes_in_val_stride_{}_validate_split_{}.txt'.format(
+            val_num_dir = os.path.join(dir_path,
+               'num_of_volumes_in_val_stride_{}_validate_split_{}.txt'.format(
                 i + 1, validation_split))
             val_volume_num += np.loadtxt(val_num_dir, dtype=int)
 

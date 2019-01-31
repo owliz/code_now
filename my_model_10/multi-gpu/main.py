@@ -679,10 +679,11 @@ def save_pixel_loss(errors, dir, video_id, error_name):
 Test phase
 """
 def test(cfg, logger, model_name):
+    size = '{}_{}'.format(cfg.width, cfg.height)
     if use_rgb == 1:
-        npy_dir = os.path.join(npy_root_dir, args.dataset, 'rgb_testing_frames')
+        npy_dir = os.path.join(npy_root_dir, args.dataset, size, 'rgb_testing_frames')
     else:
-        npy_dir = os.path.join(npy_root_dir, args.dataset, 'testing_frames')
+        npy_dir = os.path.join(npy_root_dir, args.dataset, size, 'testing_frames')
     video_nums = len(os.listdir(npy_dir))
 
     regularity_score_dir = os.path.join(regularity_score_root_dir, model_name, args.dataset,
@@ -891,12 +892,15 @@ def test(cfg, logger, model_name):
 Test_in_train phase
 """
 def test_in_train(cfg, logger, sess):
+    size = '{}_{}'.format(cfg.width, cfg.height)
     with tf.variable_scope('trick_for_auc', reuse=tf.AUTO_REUSE):
         # [batch, clip_length, h, w, c]
         if use_rgb == 1:
-            data = tf.placeholder(tf.float32, shape=[None, cfg.clip_length, cfg.height, cfg.width, 3])
+            data = tf.placeholder(tf.float32,
+                                  shape=[None, cfg.clip_length, cfg.height, cfg.width, 3])
         else:
-            data = tf.placeholder(tf.float32, shape=[None, cfg.clip_length, cfg.height, cfg.width, 1])
+            data = tf.placeholder(tf.float32,
+                                  shape=[None, cfg.clip_length, cfg.height, cfg.width, 1])
         # [batch, clip_length-1,h, w, c]
         input = data[:, :-1, ...]
         # 最后一帧， [batch, h, w, c]
@@ -913,9 +917,9 @@ def test_in_train(cfg, logger, sess):
     # mse_error = compute_mse_error(gen_frames=pred_output, gt_frames=input_gt)
 
     if use_rgb == 1:
-        npy_dir = os.path.join(npy_root_dir, args.dataset, 'rgb_testing_frames')
+        npy_dir = os.path.join(npy_root_dir, args.dataset, size, 'rgb_testing_frames')
     else:
-        npy_dir = os.path.join(npy_root_dir, args.dataset, 'testing_frames')
+        npy_dir = os.path.join(npy_root_dir, args.dataset, size, 'testing_frames')
     video_nums = len(os.listdir(npy_dir))
     # [error_video_1, error_video_1, ...]
 
