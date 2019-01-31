@@ -337,6 +337,10 @@ def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
 
     for video_idx in range(video_nums):
         sub_abnormal_events = abnormal_events[video_idx]
+        # 如果缺失一维
+        if sub_abnormal_events.ndim == 1:
+            # 加一维度
+            sub_abnormal_events = sub_abnormal_events.reshape((sub_abnormal_events.shape[0], -1))
         _, event_num = sub_abnormal_events.shape
         idx = 0
         start = max(sub_abnormal_events[0, idx] - 1, start_id)
@@ -355,7 +359,7 @@ def plot_heatmap(video_nums, dataset, regularity_score_dir, error_name, logger,
             if dataset == 'avenue':
                 img_path = os.path.join(video_path, '{:04d}.jpg'.format(frame_idx+start_id))
                 # BGR, 0~255，通道格式为(W, H, C)
-                frame_value = cv2.imread(img_path)
+                frame_value = cv2.imread(img_path, 1)
                 frame_value = cv2.cvtColor(frame_value, cv2.COLOR_BGR2RGB)
             else:
                 img_path = os.path.join(video_path, '{:03d}.jpg'.format(frame_idx+start_id))
