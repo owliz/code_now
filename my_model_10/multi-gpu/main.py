@@ -31,10 +31,10 @@ epsilon = 1e-14
 beta1 = 0.9
 
 # 2e-4 1e-4
-LRATE_G = [0.0001, 0.0001]
+LRATE_G = [0.0002, 0.0002]
 LRATE_G_BOUNDARIES = [20000]
 
-LRATE_D = [0.0001, 0.0001]
+LRATE_D = [0.0002, 0.0002]
 LRATE_D_BOUNDARIES = [20000]
 # # For rgb color scale video,
 # # such as avenue, learning rate of G and D star from 2e-4 and 2e-5, respectively.
@@ -613,7 +613,7 @@ def train(cfg, logger, model_name):
                     logger.info("update best model, min_val_g_loss is [{:09f}] in step [{}]".format(
                         cur_val_g_loss, step))
                     if use_trick == 1:
-                        new_psnr_auc = test_in_train(cfg, logger, sess)
+                        new_psnr_auc = test_in_train(cfg, logger, sess, model_name)
                         if step == min_val_loss_step:
                             min_val_loss_auc = new_psnr_auc
                             print("min_val_loss's auc is [{:09f}] in step [{}]".format(
@@ -686,7 +686,7 @@ def test(cfg, logger, model_name):
         npy_dir = os.path.join(npy_root_dir, args.dataset, size, 'testing_frames')
     video_nums = len(os.listdir(npy_dir))
 
-    regularity_score_dir = os.path.join(regularity_score_root_dir, model_name, args.dataset,
+    regularity_score_dir = os.path.join(regularity_score_root_dir, args.dataset, model_name, 
                                             'testing_frames')
     if not os.path.exists(regularity_score_dir):
         os.makedirs(regularity_score_dir)
@@ -891,7 +891,7 @@ def test(cfg, logger, model_name):
 """
 Test_in_train phase
 """
-def test_in_train(cfg, logger, sess):
+def test_in_train(cfg, logger, sess, model_name):
     size = '{}_{}'.format(cfg.width, cfg.height)
     with tf.variable_scope('trick_for_auc', reuse=tf.AUTO_REUSE):
         # [batch, clip_length, h, w, c]
@@ -923,7 +923,7 @@ def test_in_train(cfg, logger, sess):
     video_nums = len(os.listdir(npy_dir))
     # [error_video_1, error_video_1, ...]
 
-    regularity_score_dir = os.path.join(regularity_score_root_dir, args.dataset,
+    regularity_score_dir = os.path.join(regularity_score_root_dir, args.dataset, model_name,
                                             'testing_frames')
     if not os.path.exists(regularity_score_dir):
         os.makedirs(regularity_score_dir)
