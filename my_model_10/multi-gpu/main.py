@@ -65,7 +65,7 @@ lam_lp = 1
 lam_gdl = 1
 # the percentage of the adversarial loss to use in the combined loss
 # lam_adv = 0.05
-lam_adv = 0.05
+lam_adv = 1
 # the percentage of the different frame loss
 # lam_flow = 2
 lam_flow = 2
