@@ -1,0 +1,29 @@
+# 1.data
+# 4
+batch_size: 4
+# 5, 10, 20
+clip_length: 5
+
+height: 256
+width: 256
+# Data Augmentation
+# stride-1, stride-2, and stride-3
+
+
+# 2. training
+# Adam, RMSProp
+optimizer: Adam
+epochs: 1000
+
+# 我自己加的
+# loop until set condition
+steps: inf
+# steps: 100
+# wait 10 epochs in validate dataset loss
+patient: 10
+
+# ?
+flow_height: 384
+flow_width: 512
+# 1 or 0
+quick_train: 0
