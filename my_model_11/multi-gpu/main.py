@@ -314,19 +314,22 @@ def train(cfg, logger, model_name):
 
                     # define adversarial loss
                     if adversarial:
+                        # clip_lenth 帧 [batch, clip_length, h, w, c]
+                        real_video = data
+                        fake_video = tf.concat([data[:,:-1,...], pred_output], axis=1)
                         # with tf.variable_scope('discriminator', reuse=None):
                         with tf.variable_scope('discriminator', reuse=(i > 0)):
                             if GAN_type == 'SNGAN':
-                                discriminator = Discriminator(input_gt, batch_size, is_sn=True)
+                                discriminator = Discriminator(real_video, batch_size, is_sn=True)
                             else:
-                                discriminator = Discriminator(input_gt, batch_size)
+                                discriminator = Discriminator(real_video, batch_size)
                             real_outputs = discriminator.outputs
                         # 将参数reuse设置为True时，tf.get_variable 将只能获取已经创建过的变量。
                         with tf.variable_scope('discriminator', reuse=True):
                             if GAN_type == 'SNGAN':
-                                discriminator = Discriminator(pred_output, batch_size, is_sn=True)
+                                discriminator = Discriminator(fake_video, batch_size, is_sn=True)
                             else:
-                                discriminator = Discriminator(pred_output, batch_size)
+                                discriminator = Discriminator(fake_video, batch_size)
                             fake_outputs = discriminator.outputs
 
                         # print('real_outputs = {}'.format(real_outputs))
