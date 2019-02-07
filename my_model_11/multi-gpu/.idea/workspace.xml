@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1b868de-d790-4bf7-a3df-5927723a1b04" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="d1b868de-d790-4bf7-a3df-5927723a1b04" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="856" column="65" lean-forward="true" selection-start-line="856" selection-start-column="65" selection-end-line="856" selection-end-column="65" />
+            <state relative-caret-position="697">
+              <caret line="746" column="57" lean-forward="true" selection-start-line="746" selection-start-column="57" selection-end-line="746" selection-end-column="57" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -95,7 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>model_dir</find>
       <find>model_name</find>
       <find>regularity_score_dir</find>
       <find>scio</find>
@@ -125,6 +122,7 @@
       <find>discriminator.outputs</find>
       <find>real_video</find>
       <find>dis_loss</find>
+      <find>rec</find>
     </findStrings>
     <replaceStrings>
       <replace>video_nums</replace>
@@ -550,8 +548,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="856" column="65" lean-forward="true" selection-start-line="856" selection-start-column="65" selection-end-line="856" selection-end-column="65" />
+        <state relative-caret-position="697">
+          <caret line="746" column="57" lean-forward="true" selection-start-line="746" selection-start-column="57" selection-end-line="746" selection-end-column="57" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
