@@ -31,10 +31,10 @@ epsilon = 1e-14
 beta1 = 0.9
 
 # 2e-4 1e-4
-LRATE_G = [0.0002, 0.0002]
+LRATE_G = [0.0001, 0.0001]
 LRATE_G_BOUNDARIES = [20000]
 
-LRATE_D = [0.0002, 0.0002]
+LRATE_D = [0.0001, 0.0001]
 LRATE_D_BOUNDARIES = [20000]
 # # For rgb color scale video,
 # # such as avenue, learning rate of G and D star from 2e-4 and 2e-5, respectively.
@@ -65,7 +65,7 @@ lam_lp = 1
 lam_gdl = 1
 # the percentage of the adversarial loss to use in the combined loss
 # lam_adv = 0.05
-lam_adv = 1
+lam_adv = 0.05
 # the percentage of the different frame loss
 # lam_flow = 2
 lam_flow = 2
@@ -316,7 +316,8 @@ def train(cfg, logger, model_name):
                     if adversarial:
                         # clip_lenth 帧 [batch, clip_length, h, w, c]
                         real_video = data
-                        fake_video = tf.concat([data[:,:-1,...], pred_output], axis=1)
+                        fake_video = tf.concat([data[:,:-1,...],
+                                                tf.expand_dims(pred_output, axis=1)], axis=1)
                         # with tf.variable_scope('discriminator', reuse=None):
                         with tf.variable_scope('discriminator', reuse=(i > 0)):
                             if GAN_type == 'SNGAN':
@@ -733,7 +734,9 @@ def test(cfg, logger, model_name):
     else:
         reconstr_loss = tf.constant(0.0, dtype=tf.float32)
     if adversarial:
-        # with tf.variable_scope('discriminator', reuse=None):
+        real_video = data
+        fake_video = tf.concat([data[:, :-1, ...],
+                                tf.expand_dims(pred_output, axis=1)], axis=1)
         with tf.variable_scope('discriminator'):
             if GAN_type == 'SNGAN':
                 discriminator = Discriminator(pred_output, batch_size, is_sn=True)

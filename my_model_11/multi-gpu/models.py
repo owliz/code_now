@@ -52,47 +52,48 @@ class Discriminator(object):
         return tf.pad(net, spatial_pad, 'REFLECT')
 
     def _build(self, is_sn=False):
-        l0_input = self._padded(self.x, 1, 0, 1, 0)
         # (bs, 5,256,256,c) -> (bs,3,128,128,64)
+        l0_input = self._padded(self.x, 1, 0, 1, 0)
         h0 = self._lrelu(self._conv3d(l0_input, self.df_dim,
-                                      kernel_size=(3, 3, 3), strides=(1, 2, 2), padding='valid',
+                                      kernel_size=(3, 3, 3), strides=(1, 2, 2), padding='VALID',
                                       is_sn=is_sn, name='d_h0_conv'))
 
         # (bs,3,128,128,64) -> (bs,3,64,64,128)
         h0 = self._padded(h0, 0, 1, 0, 1)
         h1 = self._lrelu(tf.layers.batch_normalization(self._conv3d(h0, self.df_dim * 2,
                                                                     kernel_size=(1, 3, 3), strides=(1, 2, 2),
-                                                                    padding='valid',
+                                                                    padding='VALID',
                                                                     is_sn=is_sn, name='d_h1_conv')))
 
         # (bs,3,64,64,128) -> (bs,3,32,32,256)
         h1 = self._padded(h1, 0, 1, 0, 1)
         h2 = self._lrelu(tf.layers.batch_normalization(self._conv3d(h1, self.df_dim * 4,
                                                                     kernel_size=(1, 3, 3), strides=(1, 2, 2),
-                                                                    padding='valid',
+                                                                    padding='VALID',
                                                                     is_sn=is_sn, name='d_h2_conv')))
 
         # (bs,3,32,32,256) -> (bs,1,16,16,512)
         h2 = self._padded(h2, 0, 1, 0, 1)
         h3 = self._lrelu(tf.layers.batch_normalization(self._conv3d(h2, self.df_dim * 8,
                                                                     kernel_size=(3, 3, 3), strides=(1, 2, 2),
-                                                                    padding='valid',
+                                                                    padding='VALID',
                                                                     is_sn=is_sn, name='d_h3_conv')))
 
         # (bs,1,16,16,512)  -> (bs,1,8,8,512)
         h3 = self._padded(h3, 0, 1, 0, 1)
         h4 = self._lrelu(tf.layers.batch_normalization(self._conv3d(h3, self.df_dim * 8,
                                                                     kernel_size=(1, 3, 3), strides=(1, 2, 2),
-                                                                    padding='valid',
+                                                                    padding='VALID',
                                                                     is_sn=is_sn, name='d_h4_conv')))
         # (bs,1,8,8,512)  -> (bs,1,8,8,1)
         h4 = self._padded(h4, 1, 1, 1, 1)
         h5 = tf.nn.sigmoid(self._conv3d(h4, 1, kernel_size=(1, 3, 3), strides=(1, 1, 1),
-                                                                    padding='valid',
+                                                                    padding='VALID',
                                                                     is_sn=is_sn, name='d_h5_conv'))
-        h5 = tf.reshape(h5, shape=[-1, 64])
-        # (bs,1,8,8,1)  -> (bs,1)
-        self.outputs = tf.reduce_mean(h5, axis=[1])
+        # # (bs,1,8,8,1)  -> (bs,1)
+        # h5 = tf.reshape(h5, shape=[-1, 64])
+        # self.outputs = tf.reduce_mean(h5, axis=[1])
+        self.outputs = h5
 
     def _linear(self, input_, output_size, stddev=0.02, bias_start=0.0, with_w=False, is_sn=False,
                 name='linear'):
