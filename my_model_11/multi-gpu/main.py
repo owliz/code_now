@@ -734,14 +734,13 @@ def test(cfg, logger, model_name):
     else:
         reconstr_loss = tf.constant(0.0, dtype=tf.float32)
     if adversarial:
-        real_video = data
         fake_video = tf.concat([data[:, :-1, ...],
                                 tf.expand_dims(pred_output, axis=1)], axis=1)
         with tf.variable_scope('discriminator'):
             if GAN_type == 'SNGAN':
-                discriminator = Discriminator(pred_output, batch_size, is_sn=True)
+                discriminator = Discriminator(fake_video, batch_size, is_sn=True)
             else:
-                discriminator = Discriminator(pred_output, batch_size)
+                discriminator = Discriminator(fake_video, batch_size)
             fake_outputs = discriminator.outputs
 
         # print('real_outputs = {}'.format(real_outputs))
@@ -803,9 +802,9 @@ def test(cfg, logger, model_name):
                 pixel_loss_l = []
                 mse_errors_l = []
                 psnr_l = []
-                if lam_two_stream != 0:
-                    reconstr_loss_l = []
-                    psnr_rec_l = []
+                # if lam_two_stream != 0:
+                #     reconstr_loss_l = []
+                #     psnr_rec_l = []
                 dis_loss_l = []
                 psnr_dis_l = []
                 psnr_half_dis_l = []
@@ -821,10 +820,9 @@ def test(cfg, logger, model_name):
                         # [n, clip_length, h, w, 1]
                         tested_data = np.expand_dims(tested_data, axis=-1)
 
-                    pixel_loss_v, dis_loss_v, reconstr_loss_v, mse_error_v, psnr_v = sess.run(
-                            [pixel_loss, dis_loss, reconstr_loss, mse_error, psnr],
-                            feed_dict={data: tested_data,
-                                       batch_size:1})
+                    pixel_loss_v, dis_loss_v, mse_error_v, psnr_v = sess.run(
+                            [pixel_loss, dis_loss, mse_error, psnr],
+                            feed_dict={data: tested_data,  batch_size:1})
 
                     pixel_loss_l.append(pixel_loss_v)
                     mse_errors_l.append(mse_error_v)
@@ -832,18 +830,18 @@ def test(cfg, logger, model_name):
                     dis_loss_l.append(dis_loss_v)
                     psnr_dis_l.append(-psnr_v + dis_loss_v)
                     psnr_half_dis_l.append(-psnr_v + 0.5*dis_loss_v)
-                    psnr_half_rec_l.append(-psnr_v + 0.5*reconstr_loss_v)
-                    if lam_two_stream != 0:
-                        reconstr_loss_l.append(reconstr_loss_v)
-                        psnr_rec_l.append(-psnr_v + reconstr_loss_v)
+                    # psnr_half_rec_l.append(-psnr_v + 0.5*reconstr_loss_v)
+                    # if lam_two_stream != 0:
+                    #     reconstr_loss_l.append(reconstr_loss_v)
+                    #     psnr_rec_l.append(-psnr_v + reconstr_loss_v)
 
                 pixel_losses = np.array(pixel_loss_l)
                 mse_errors = np.array(mse_errors_l)
                 psnrs = np.array(psnr_l)
                 dis_losses = np.array(dis_loss_l)
-                if lam_two_stream != 0:
-                    reconstr_losses = np.array(reconstr_loss_l)
-                    psnr_recs = np.array(psnr_rec_l)
+                # if lam_two_stream != 0:
+                #     reconstr_losses = np.array(reconstr_loss_l)
+                #     psnr_recs = np.array(psnr_rec_l)
                 psnr_half_recs = np.array(psnr_half_rec_l)
                 psnr_diss = np.array(psnr_dis_l)
                 psnr_half_diss = np.array(psnr_half_dis_l)
@@ -852,18 +850,17 @@ def test(cfg, logger, model_name):
                 compute_and_save_scores(mse_errors, regularity_score_dir, i, 'mse')
                 compute_and_save_scores(psnrs, regularity_score_dir, i, 'psnr')
                 compute_and_save_scores(dis_losses, regularity_score_dir, i, 'dis')
-                compute_and_save_scores(psnr_half_recs, regularity_score_dir, i, 'psnr_half_rec')
+                # compute_and_save_scores(psnr_half_recs, regularity_score_dir, i, 'psnr_half_rec')
                 compute_and_save_scores(psnr_diss, regularity_score_dir, i, 'psnr_dis')
                 compute_and_save_scores(psnr_half_diss, regularity_score_dir, i, 'psnr_half_dis')
-                if lam_two_stream != 0:
-                    compute_and_save_scores(reconstr_losses, regularity_score_dir, i, 'rec')
-                    compute_and_save_scores(psnr_recs, regularity_score_dir, i, 'psnr_rec')
+                # if lam_two_stream != 0:
+                #     compute_and_save_scores(reconstr_losses, regularity_score_dir, i, 'rec')
+                #     compute_and_save_scores(psnr_recs, regularity_score_dir, i, 'psnr_rec')
 
     print('AUC and EER result:')
     logger.info('AUC and EER result:')
     # compute auc and eer
-    for error_name in ['mse', 'psnr', 'psnr_half_rec', 'dis', 'psnr_dis', 'psnr_half_dis',
-        'rec', 'psnr_rec']:
+    for error_name in ['mse', 'psnr', 'dis', 'psnr_dis', 'psnr_half_dis']:
         assert os.path.exists(os.path.join(regularity_score_dir, error_name)) is True\
             , '[!!!] error_name:{} is non-existent.'.format(error_name)
         print('---- error_name:{}'.format(error_name))
