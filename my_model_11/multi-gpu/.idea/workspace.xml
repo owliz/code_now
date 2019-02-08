@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1b868de-d790-4bf7-a3df-5927723a1b04" name="Default" comment="" />
+    <list default="true" id="d1b868de-d790-4bf7-a3df-5927723a1b04" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/test_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_util.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,13 +80,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="746" column="57" lean-forward="true" selection-start-line="746" selection-start-column="57" selection-end-line="746" selection-end-column="57" />
+            <state relative-caret-position="185">
+              <caret line="877" column="13" lean-forward="true" selection-start-line="877" selection-start-column="8" selection-end-line="877" selection-end-column="18" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_util.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,14 +108,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>model_name</find>
       <find>regularity_score_dir</find>
       <find>scio</find>
       <find>np.arange(start_id, start_id + regularity_score.shape[0])</find>
       <find>np.arange(start_id, start_id+regularity_score.shape[0]</find>
       <find>video_nums</find>
       <find>50</find>
-      <find>plot</find>
       <find>detected_regions</find>
       <find>event_png</find>
       <find>event</find>
@@ -123,6 +136,8 @@
       <find>real_video</find>
       <find>dis_loss</find>
       <find>rec</find>
+      <find>reconstr_loss</find>
+      <find>plot</find>
     </findStrings>
     <replaceStrings>
       <replace>video_nums</replace>
@@ -152,16 +167,16 @@
         <option value="$PROJECT_DIR$/config_reader.py" />
         <option value="$PROJECT_DIR$/config.yml" />
         <option value="$PROJECT_DIR$/loss_functions.py" />
-        <option value="$PROJECT_DIR$/test_util.py" />
         <option value="$PROJECT_DIR$/dataset_util.py" />
         <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/test_util.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="750" />
-    <option name="y" value="52" />
+    <option name="x" value="579" />
+    <option name="y" value="34" />
     <option name="width" value="1129" />
     <option name="height" value="1047" />
   </component>
@@ -211,9 +226,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="apport_python_hook" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="multi-gpu" />
@@ -232,9 +244,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="loss_functions" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="multi-gpu" />
@@ -253,9 +262,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="multi-gpu" />
@@ -270,13 +276,10 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="--dataset ped2 --phase train" />
+      <option name="PARAMETERS" value="--dataset ped2 --phase test" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="train_util" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="multi-gpu" />
@@ -295,9 +298,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Python.main" />
@@ -339,26 +339,26 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="798" y="0" width="1129" height="1047" extended-state="0" />
+    <frame x="579" y="34" width="1129" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.44551283" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24186552" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.7639311" visible="true" weight="0.16867469" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.23606889" side_tool="true" weight="0.35140997" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24186552" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49949342" weight="0.329718" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7639311" weight="0.3726977" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -374,38 +374,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_util.py</url>
-          <line>210</line>
+          <line>211</line>
           <option name="timeStamp" value="336" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_util.py</url>
-          <line>153</line>
+          <line>154</line>
           <option name="timeStamp" value="340" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_util.py</url>
-          <line>206</line>
+          <line>207</line>
           <option name="timeStamp" value="342" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_util.py</url>
-          <line>115</line>
+          <line>116</line>
           <option name="timeStamp" value="343" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_util.py</url>
-          <line>122</line>
+          <line>123</line>
           <option name="timeStamp" value="345" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
           <line>121</line>
           <option name="timeStamp" value="355" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>763</line>
-          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
@@ -520,16 +515,6 @@
     <entry file="file:///usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py" />
     <entry file="file:///usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py" />
     <entry file="file://$PROJECT_DIR$/../../../0_common_code/my_preprocess.py" />
-    <entry file="file://$PROJECT_DIR$/test_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-314">
-          <caret line="337" column="27" selection-start-line="337" selection-start-column="27" selection-end-line="337" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/lib/_datasource.py" />
     <entry file="file://$PROJECT_DIR$/dataset_util.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -548,10 +533,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="746" column="57" lean-forward="true" selection-start-line="746" selection-start-column="57" selection-end-line="746" selection-end-column="57" />
+        <state relative-caret-position="185">
+          <caret line="877" column="13" lean-forward="true" selection-start-line="877" selection-start-column="8" selection-end-line="877" selection-end-column="18" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

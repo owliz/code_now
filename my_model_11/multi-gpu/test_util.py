@@ -8,7 +8,8 @@ if os.environ.get('DISPLAY','') == '':
     print('no display found. Using non-interactive Agg backend')
     mpl.use('Agg')
 import matplotlib.pyplot as plt
-# plt.ioff()
+# 关闭
+plt.ioff()
 
 
 def load_groundtruth_from_mat(dataset, gt_root_dir):

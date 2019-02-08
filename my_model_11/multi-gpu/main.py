@@ -21,7 +21,7 @@ window_length = 50
 use_trick = 1
 for_remote = 0
 for_pc = 1
-use_rgb = 0
+use_rgb = 1
 file_name = 'myModel_11'
 
 #if epsilon is too big, training of DCGAN is failure.
@@ -31,10 +31,10 @@ epsilon = 1e-14
 beta1 = 0.9
 
 # 2e-4 1e-4
-LRATE_G = [0.0001, 0.0001]
+LRATE_G = [0.0002, 0.0002]
 LRATE_G_BOUNDARIES = [20000]
 
-LRATE_D = [0.0001, 0.0001]
+LRATE_D = [0.0002, 0.0002]
 LRATE_D_BOUNDARIES = [20000]
 # # For rgb color scale video,
 # # such as avenue, learning rate of G and D star from 2e-4 and 2e-5, respectively.
