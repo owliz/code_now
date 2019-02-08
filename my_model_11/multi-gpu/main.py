@@ -746,7 +746,7 @@ def test(cfg, logger, model_name):
         # print('real_outputs = {}'.format(real_outputs))
         # print('fake_outputs = {}'.format(fake_outputs))
 
-        dis_loss = -tf.reduce_mean(fake_outputs + epsilon)      
+        dis_loss = - tf.reduce_mean(tf.log(fake_outputs + epsilon))   
     else:
         dis_loss = tf.constant(0.0, dtype=tf.float32)
         
