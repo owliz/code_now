@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d1b868de-d790-4bf7-a3df-5927723a1b04" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/test_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_util.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-706426634">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1342855791">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="70" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="70" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="yml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="YAML" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="1372700248">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="328" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="328" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="877" column="13" lean-forward="true" selection-start-line="877" selection-start-column="8" selection-end-line="877" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_util.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test_util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>regularity_score_dir</find>
+      <find>scio</find>
+      <find>np.arange(start_id, start_id + regularity_score.shape[0])</find>
+      <find>np.arange(start_id, start_id+regularity_score.shape[0]</find>
+      <find>video_nums</find>
+      <find>50</find>
+      <find>detected_regions</find>
+      <find>event_png</find>
+      <find>event</find>
+      <find>if x.startswith('minima'</find>
+      <find>show</find>
+      <find>event_counter</find>
+      <find>minima_threshold</find>
+      <find>compute_pixel_loss</find>
+      <find>total_frame_nums</find>
+      <find>plt</find>
+      <find>shape</find>
+      <find>load_groundtruth_from_mat</find>
+      <find>sub_abnormal_events</find>
+      <find>cfg</find>
+      <find>sub_abnormal_events[0, j] - 1</find>
+      <find>test</find>
+      <find>dataset</find>
+      <find>val_volumes</find>
+      <find>discriminator.outputs</find>
+      <find>real_video</find>
+      <find>dis_loss</find>
+      <find>rec</find>
+      <find>reconstr_loss</find>
+      <find>plot</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>video_nums</replace>
+      <replace>scores</replace>
+      <replace>2.CLSTM-AE-my</replace>
+      <replace>get_shape().as_list()</replace>
+      <replace>clip_length_{:02d}</replace>
+      <replace>pred_output</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/convAEmodel.py" />
+        <option value="$PROJECT_DIR$/dataset_iterator.py" />
+        <option value="$PROJECT_DIR$/splited_dataset.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/train_util.py" />
+        <option value="$PROJECT_DIR$/CLSTM_AEmodel.py" />
+        <option value="$PROJECT_DIR$/config_reader.py" />
+        <option value="$PROJECT_DIR$/config.yml" />
+        <option value="$PROJECT_DIR$/loss_functions.py" />
+        <option value="$PROJECT_DIR$/dataset_util.py" />
+        <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/test_util.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="579" />
+    <option name="y" value="34" />
+    <option name="width" value="1129" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="CLSTM_AEmodel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multi-gpu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="apport_python_hook" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multi-gpu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="/usr/lib/python3/dist-packages" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="/usr/lib/python3/dist-packages/apport_python_hook.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="loss_functions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multi-gpu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/loss_functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multi-gpu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="--dataset ped2 --phase test" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="train_util" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="multi-gpu" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train_util.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.train_util" />
+      <item itemvalue="Python.CLSTM_AEmodel" />
+      <item itemvalue="Python.loss_functions" />
+      <item itemvalue="Python.apport_python_hook" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.train_util" />
+        <item itemvalue="Python.apport_python_hook" />
+        <item itemvalue="Python.loss_functions" />
+        <item itemvalue="Python.CLSTM_AEmodel" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d1b868de-d790-4bf7-a3df-5927723a1b04" name="Default" comment="" />
+      <created>1543458420661</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1543458420661</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="579" y="34" width="1129" height="1047" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.44551283" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.23606889" side_tool="true" weight="0.35140997" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24186552" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49949342" weight="0.329718" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7639311" weight="0.3726977" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/training/saver.py</url>
+          <line>1569</line>
+          <option name="timeStamp" value="208" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_util.py</url>
+          <line>211</line>
+          <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_util.py</url>
+          <line>154</line>
+          <option name="timeStamp" value="340" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_util.py</url>
+          <line>207</line>
+          <option name="timeStamp" value="342" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_util.py</url>
+          <line>116</line>
+          <option name="timeStamp" value="343" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_util.py</url>
+          <line>123</line>
+          <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>121</line>
+          <option name="timeStamp" value="355" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>333</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>370</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/gen_nn_ops.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/keras/backend.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/keras/layers/wrappers.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/1493273326/builtins.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/contrib/rnn/python/ops/core_rnn_cell.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/util/lazy_loader.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/rnn_cell_impl.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/rnn.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/contrib/rnn/python/ops/rnn_cell.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/array_ops.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/framework/tensor_shape.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/data/ops/dataset_ops.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/lib/shape_base.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/core/fromnumeric.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/image_ops_impl.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/training/training_util.py" />
+    <entry file="file://$PROJECT_DIR$/flownet2/src/flowlib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flownet2/src/flownet_sd/flownet_sd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config_reader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/training/optimizer.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/variable_scope.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/training/saver.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/lib/arraysetops.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/utils/validation.py" />
+    <entry file="file://$PROJECT_DIR$/tvnet/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pix2pix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="265" column="45" selection-start-line="265" selection-start-column="35" selection-end-line="265" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/nn_ops.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/gen_array_ops.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/training/adam.py" />
+    <entry file="file:///usr/lib/python3/dist-packages/apport_python_hook.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/util/deprecation.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/metrics/ranking.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/ops/math_ops.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/framework/errors_impl.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/lib/io/file_io.py" />
+    <entry file="file://$PROJECT_DIR$/train_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loss_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2788">
+          <caret line="165" column="22" selection-start-line="165" selection-start-column="4" selection-end-line="165" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/1493273326/numpy/core/multiarray.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/matplotlib/image.py" />
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/matplotlib/axes/_axes.py" />
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/platform/app.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/matplotlib/axes/_axes.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/matplotlib/pyplot.py" />
+    <entry file="file://$PROJECT_DIR$/../../../0_common_code/my_preprocess.py" />
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/numpy/lib/_datasource.py" />
+    <entry file="file://$PROJECT_DIR$/dataset_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="54" column="12" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/tensorflow_py3.5/lib/python3.5/site-packages/tensorflow/python/framework/ops.py" />
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="877" column="13" lean-forward="true" selection-start-line="877" selection-start-column="8" selection-end-line="877" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
